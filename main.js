@@ -1,9 +1,23 @@
-var title;
-var screens;
-var screenPrice;
-var rollback;
-var fullPrice;
-var adaptive;
+let title = "jopaScript";
+let screens = "Простые, Сложные, Интерактивные";
+let screenPrice = 666666666;
+let rollback = 69;
+let fullPrice = 666666666666;
+let adaptive = false;
+
+console.log(typeof title);
+console.log(typeof fullPrice);
+console.log(typeof adaptive);
+
+console.log(screens.length);
+
+console.log("Стоимость верстки экранов " + screenPrice + " рублей" + " Стоимость разработки сайта " + fullPrice + " рублей");
+
+console.log(screens.toLowerCase);
+
+console.log(screens.split(","));
+
+console.log((fullPrice * (rollback/100)));
 
 alert("Ky-ky");
 console.log("bruh");
