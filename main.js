@@ -1,9 +1,12 @@
-var title;
-var screens;
-var screenPrice;
-var rollback;
-var fullPrice;
-var adaptive;
+let num = 266219;
+let arr = num.toString().split('')
 
-alert("Ky-ky");
-console.log("bruh");
+let result = arr.reduce(function(sum, current) {
+    return sum * current;
+  });
+
+console.log(result);
+
+let obj = (result **3);
+console.log(obj);
+console.log(obj.toString().substring(0, 2));
