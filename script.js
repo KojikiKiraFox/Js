@@ -53,5 +53,4 @@ showTypeOf(adaptive)
 console.log(getTitle(title));
 console.log(allServicePrices);
 console.log(getRollbackMessage(fullPrice));
-console.log(screens.split());
-console.log(screens);
+console.log(screens.split(", "));
