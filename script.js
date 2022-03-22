@@ -1,92 +1,42 @@
 'use strict'
 
-let servicePrice1
-let servicePrice2 
-
-let rollback = 10;
-let allServicePrices;
-let fullPrice;
-let servicePercentPrice;
-let title
-let screens
-let screenPrice
-let adaptive
-let service1
-let service2
-
-
-const isNumber = function (num) {
-    return !isNaN(parseFloat(num)) && isFinite(num)
-}
-
-const asking = function () {
-    title = prompt("Как называется ваш проект?");
-    screens = prompt("Какие типы экранов нужно разработать?");
-
-    do{
-        screenPrice = prompt("Сколько будет стоить данная работа?");
-    }while(!isNumber(screenPrice))
-
-    adaptive = confirm("Нужен ли адаптив на сайте?");
-}
-
-const showTypeOf = function (variable){
-    console.log(variable, typeof variable);
-}
-
-const getRollbackMessage = function(price){
-    if (price >= 30000) {
-        return "Даем скидку в 10%"
-    }else if(price >= 15000 && price< 30000) {
-        return"Даем скидку в 5%"
-    }else if (price >= 0 && price < 15000) {
-        return"Скидка не предусмотрена"
-    }else{
-        return"Что-то пошло не так"
-    }
-}
-
-const getAllServicePrices = function (serv1, serv2){
-    let sum = 0
-    let boba = 0;
+//hard 1
     
-    for (let i = 0; i < 2; i++){
-        if (i === 0){
-            service1 = prompt("Какой дополнительный тип услуги нужен?");
-        } else if (i === 1){
-            service2 = prompt("Какой дополнительный тип услуги нужен?");
-        }
-        do {
-            boba = +prompt("Сколько это будет стоить?");
-        } while (!isNumber(boba))
-
-        sum += boba;
+let text = prompt('skolko', 2000);
+let num;
+const getNum = function(a) {
+    if (false == isNaN(a)) {
+        num = Number(a)
+    } else {
+        text = prompt('skolko', 2000)
+        getNum(text)
     }
-    return sum
+}
+console.log(getNum(text));
+console.log(typeof num);
+console.log(num);
+
+//hard 2-1
+
+const arr = ["43523", "3243425", "231234", "435234", "9324213", "23241432", "64352134"]
+
+for (let i = 0; i < arr.length; i++) {
+    if(arr[i].startsWith('2') || arr[i].startsWith('4')){
+        console.log(arr[i]);
+    }
+    
 }
 
-const getFullPrice = function(scr, allServ){
-    return scr + allServ;
+// hard 2-2
+
+let n = 100;
+
+nextPrime:
+for (let i = 2; i <= n; i++) {
+    let j
+  for ( j = 2; j < i; j++) {
+    if (i % j == 0) continue nextPrime;
 }
+console.log(i, "Делители этого числа: 1 и ", j);
 
-const getServicePercentPrices = function(fullP, rollb){
-    return fullP - (fullP * (rollb / 100)) ;
 }
-
-const getTitle = function(title) {
-    return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase()
-}
-
-asking()
-allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
-fullPrice = getFullPrice(screenPrice, allServicePrices);
-servicePercentPrice  = getServicePercentPrices(fullPrice, rollback);
-
-showTypeOf(title)
-showTypeOf(screenPrice)
-showTypeOf(adaptive)
-
-console.log(getTitle(title));
-console.log(allServicePrices);
-console.log(getRollbackMessage(fullPrice));
-console.log(screens.split(", "));
