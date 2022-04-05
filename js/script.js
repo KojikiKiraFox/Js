@@ -4,6 +4,7 @@ const title = document.getElementsByTagName('h1')[0];
 const buttonPlus = document.querySelector('.screen-btn');
 const otherItemsPercent = document.querySelectorAll('.other-items.percent');
 const otherItemsNumber = document.querySelectorAll('.other-items.number');
+const mainControlsInput = document.querySelector('.main-controls__input')
 
 const inputRange = document.querySelector('.rollback [type=range]');
 const inputRangeValue = document.querySelector('.rollback .range-value');
@@ -21,6 +22,7 @@ let select = document.querySelector('select')
 let screenCount = 0
 
 let screens = document.querySelectorAll('.screen');
+
 
 const appData = {
     title: '',
@@ -44,9 +46,14 @@ const appData = {
         document.title = title.textContent
     },
     start: function() {
+        appData.fullPrice = 0
+        appData.servicePricesNumber = 0
+        appData.servicePricesPercent = 0
+        appData.screenPrice = 0
+        appData.screens.length = 0
+        screenCount = 0
         appData.addScreens()
         appData.addServices()
-
         appData.addPrices()
         // appData.getServicePercentPrices(),
         appData.checkingForMistakes()
@@ -58,12 +65,13 @@ const appData = {
         if (select.value == '' && screenCount >= 0) {
             startBtn.disabled = false
         } else {
-            startBtn.disabled = true
+            
         }
 
         const changing = function(event) {
             inputRangeValue.textContent = event.target.value + '%'
             appData.rollback = event.target.value
+            appData.showResult()
             // console.log(appData.rollback)
         }
 
@@ -95,7 +103,7 @@ const appData = {
     },
     addServices: function() {
         otherItemsPercent.forEach(function(item) {
-            const check = item.querySelector('input[type=checkbox')
+            const check = item.querySelector('input[type=checkbox]')
             const label = item.querySelector('label')
             const input = item.querySelector('input[type=text]')
             // console.log(check, label, input)
@@ -105,7 +113,7 @@ const appData = {
         })
 
         otherItemsNumber.forEach(function(item) {
-            const check = item.querySelector('input[type=checkbox')
+            const check = item.querySelector('input[type=checkbox]')
             const label = item.querySelector('label')
             const input = item.querySelector('input[type=text]')
             // console.log(check, label, input)
@@ -116,7 +124,8 @@ const appData = {
     },
     addScreenBlock: function() {
         const cloneScreen = screens[0].cloneNode(true)
-        
+        const input = cloneScreen.querySelector('input')
+        input.value = ''
         screens[screens.length - 1].after(cloneScreen)
     },
     addPrices: function() {
