@@ -15,13 +15,13 @@ var domElement = function (selector, height, width, bg, fontSize, pos) {
     } else if (0 == selector.indexOf('#')) {
         let str = selector.slice(1)
         p.id = str
-        p.textContent = 'gg wp'
+        p.textContent = 'Good Job'
         body.append(p)
     } else {
         console.log('Не правильно');
     }
 }
-var per = new domElement('.pancgey', '100px', '100px', 'red', '28px', 'absolute')
+var per = new domElement('.da', '100px', '100px', 'red', '28px', 'absolute')
 
 addEventListener('keydown', function (event){
     if ( event.keyCode == 37){
