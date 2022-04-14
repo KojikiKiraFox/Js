@@ -1,9 +1,3 @@
-const one = () =>{
-    let timerHours = document.querySelector('#timer-hours')
-    let timerMinutes = document.querySelector('#timer-minutes')
-    let timerSeconds = document.querySelector('#timer-seconds')
+import timer from "./modules/timer";
 
-    console.log(timerHours);
-    console.log(timerMinutes);
-    console.log(timerSeconds);
-}
+timer('14 april 2022 15:50:00:000')

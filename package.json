@@ -6,6 +6,7 @@
   "name": "lesson18",
   "version": "1.0.0",
   "main": "index.js",
+
   "dependencies": {
     "acorn": "^8.7.0",
     "acorn-import-assertions": "^1.8.0",
@@ -99,7 +100,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch --mode development"
   },
   "keywords": [],
   "author": "",
