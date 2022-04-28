@@ -7,25 +7,25 @@ const assay = () => {
     const form3Name = document.querySelectorAll('.top-form')[0]
 
     formPhone.forEach(btn => {
-        btn.addEventListener('blur', function () {
+        btn.addEventListener('input', function () {
             phone(event)
         })
     })
 
     formEmail.forEach(btn => {
-        btn.addEventListener('blur', function () {
+        btn.addEventListener('input', function () {
             email(event)
         })
     })
 
     formName.forEach(btn => {
-        btn.addEventListener('blur', function () {
+        btn.addEventListener('input', function () {
             text(event)
         })
     })
 
     calcItem.forEach(btn => {
-        btn.addEventListener('blur', function () {
+        btn.addEventListener('input', function () {
             if (!btn[0] ){
                 calc(event)
             }else {
@@ -38,7 +38,7 @@ const assay = () => {
         text(event)
     })
 
-    formMessage.addEventListener('blur', function () {
+    formMessage.addEventListener('input', function () {
         text(event)
     })
 
